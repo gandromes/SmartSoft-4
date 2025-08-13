@@ -1,17 +1,16 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require_once 'core/db.php';
 
-$PATHREVIEWICON   = "assets/img/reviewicon.png";
-$EDITREVIEWICON   = "assets/img/penicon.png";
-$DELETEREVIEWICON = "assets/img/trashicon.png";
-
-$stmt = $pdo->query("SELECT id, name, comment FROM reviews ORDER BY id DESC");  // 
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $id        = $row['id'];
-    $username  = htmlspecialchars($row['name']);
-    $text      = htmlspecialchars($row['comment']);
-
+$PATHREVIEWICON   = 'assets/img/reviewicon.png';
+$EDITREVIEWICON   = 'assets/img/penicon.png';
+$DELETEREVIEWICON = 'assets/img/trashicon.png';
+?>
+<div class="reviewsusersblock" id="reviewsusersblock">
+<?php
+foreach ($reviews as $row) {
+    $id       = $row['id'];
+    $username = htmlspecialchars($row['name']);
+    $text     = htmlspecialchars($row['comment']);
     echo "<div class='review' id='review-$id'>
             <img class='reviewicon' src='$PATHREVIEWICON' alt='Отзыв'>
             <div class='reviewinfoblock'>
@@ -25,3 +24,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           </div>";
 }
 ?>
+</div>
+
+

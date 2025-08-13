@@ -10,8 +10,8 @@
         </div>
     </div>
     
-    <?php 
-        require_once __DIR__ . '/../public/reviews_list.php'
-    ?>
+    <?php require_once __DIR__ . '/../app/Views/reviews/_list.php'; ?>
 </div>        
 <!--  Блок content -->
+
+

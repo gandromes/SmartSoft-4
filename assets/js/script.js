@@ -180,7 +180,7 @@ reviewsBlock.addEventListener("click", function (e) {
             confirmButtonColor: "#d33"
         }).then(function (result) {
             if (result.isConfirmed) {
-                fetch("core/actions.php", {
+                fetch("public/actions.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: "action=delete&id=" + encodeURIComponent(id)
@@ -218,7 +218,7 @@ reviewsBlock.addEventListener("click", function (e) {
             }
         }).then(function (result) {
             if (result.isConfirmed) {
-                fetch("core/actions.php", {
+                fetch("public/actions.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: "action=edit&id=" + encodeURIComponent(id) +
@@ -263,7 +263,7 @@ if (addBtn) {
                 var name = result.value.name;
                 var comment = result.value.comment;
 
-                fetch("core/actions.php", {
+                fetch("public/actions.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: "action=add&name=" + encodeURIComponent(name) +
@@ -287,7 +287,7 @@ if (addBtn) {
                             </div>
                         `;
 
-                        var reviewsusersblock = reviewsBlock.children.reviewsusersblock; // получаю блок отзывов
+                        var reviewsusersblock = document.getElementById("reviewsusersblock"); // получаю блок отзывов
                         reviewsusersblock.insertAdjacentHTML("afterBegin", newHTML);
                         Swal.fire("Готово!", "Отзыв добавлен", "success");
                     } else {
